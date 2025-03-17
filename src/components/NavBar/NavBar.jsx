@@ -1,5 +1,12 @@
+import { FaBeer } from "react-icons/fa";
+import { RiMenu2Fill } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
+
 import Link from "../Link/Link";
+import { useState } from "react";
 const NavBar = () => {
+
+    const [open, setOpen] = useState(false)
 
     // route paths with id, path and name
     const routes = [
@@ -12,7 +19,14 @@ const NavBar = () => {
 
     return (
         <nav>
-           <ul className='flex md:'>
+            <div className="text-2xl md:hidden" onClick={() => setOpen(!open)}>
+                {
+                   open == true ? <AiOutlineClose/>
+                   : <RiMenu2Fill/>
+                }
+                
+            </div>
+           <ul className='md:flex'>
                 {
                     routes.map(route => 
                         <Link key={route.id} route={route}></Link>
