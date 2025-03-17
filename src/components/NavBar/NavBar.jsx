@@ -18,7 +18,7 @@ const NavBar = () => {
     ]
 
     return (
-        <nav>
+        <nav className='p-6 text-black bg-yellow-200'>
             <div className="text-2xl md:hidden" onClick={() => setOpen(!open)}>
                 {
                    open == true ? <AiOutlineClose/>
@@ -26,13 +26,42 @@ const NavBar = () => {
                 }
                 
             </div>
-           <ul className='md:flex'>
+            
+            {/* Open and Close with menu icon*/}
+           {/* <ul className={`absolute px-6 bg-yellow-200 shadow-lg duration-1000 md:flex 
+                ${open ? 'block' : 'hidden'}`}>
+                {
+                    routes.map(route => 
+                        <Link key={route.id} route={route}></Link>
+                    )
+                }
+           </ul> */}
+
+           {/* positioning fron the top */}
+           <ul className={`absolute px-6 bg-yellow-200 
+                 duration-1000 md:flex md:static 
+                ${open ? 'top-20' : '-top-60'}`}>
                 {
                     routes.map(route => 
                         <Link key={route.id} route={route}></Link>
                     )
                 }
            </ul>
+           {/* <ul className={`absolute px-6 bg-yellow-200 shadow-lg duration-1000 md:flex ${open ? 'block' : 'hidden'}`}>
+                {
+                    routes.map(route => 
+                        <Link key={route.id} route={route}></Link>
+                    )
+                }
+           </ul> */}
+           {/* <ul className={`absolute px-6 bg-yellow-200 shadow-lg duration-1000 md:flex ${open ? 'block' : 'hidden'}`}>
+                {
+                    routes.map(route => 
+                        <Link key={route.id} route={route}></Link>
+                    )
+                }
+           </ul> */}
+           
         </nav>
     );
 };
